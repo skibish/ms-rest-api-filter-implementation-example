@@ -1,0 +1,16 @@
+# src: https://github.com/alexkaratarakis/gitattributes/blob/master/Java.gitattributes
+# Java sources
+*.java          text diff=java
+*.kt            text diff=kotlin
+*.gradle        text diff=java
+*.gradle.kts    text diff=kotlin
+
+# These files are binary and should be left untouched
+# (binary is a macro for -text -diff)
+*.class         binary
+*.dll           binary
+*.ear           binary
+*.jar           binary
+*.so            binary
+*.war           binary
+*.jks           binary
