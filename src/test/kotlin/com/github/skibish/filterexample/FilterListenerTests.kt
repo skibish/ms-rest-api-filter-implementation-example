@@ -32,13 +32,13 @@ class FilterListenerTests {
         "price le 3.5 or price gt 200",
         "{ \$or: [ { \"price\": { \$lte: 3.5 } }, { \"price\": { \$gt: 200.0 } } ] }"
       ),
-      Arguments.arguments("not price le 3.5", "{ \"price\": { \$not: { \$lte: 3.5 } } }"),
+      Arguments.arguments("not price le 3.5", "{ \"price\": { \$gt: 3.5 } }"),
+      Arguments.arguments("not (a eq 'b' and not c eq 'd') or not e lt 2", "{ \$or: [ { \$nor: [ { \$and: [ { \"a\": { \$eq: \"b\" } }, { \"c\": { \$ne: \"d\" } } ] } ] }, { \"e\": { \$gte: 2.0 } } ] }"),
     )
 
     @JvmStatic
     fun testCasesNegative(): List<Arguments> = listOf(
       Arguments.arguments("price....avs eq 10.00"),
-      Arguments.arguments("not (a eq true or b eq true)"),
       Arguments.arguments("something completely irrelevant"),
     )
   }
